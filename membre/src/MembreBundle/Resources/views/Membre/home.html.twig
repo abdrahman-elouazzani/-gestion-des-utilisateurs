@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+
+<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+
+	<title>Home</title>
+	<style type="text/css">
+     .logout{
+     	margin-top: 10px; 
+     }
+     .content{
+     	margin: 20px;
+     	max-height: 500px;
+     	
+     }
+     .add{
+     	margin-left: 20px;
+     	margin-top: 10px;
+     }
+	</style>
+</head>
+<body>
+	<div class="container">
+	  <div class="row">
+	  	<div class="col-md-12">
+	  		<a href="{{ path('logout') }}" ><button class="btn btn-danger pull-right logout">Logout</button></a>
+	  	</div>
+	  </div>
+	  <div class="row">
+	  	<div class="col-md-12">
+	  		<a href="{{ path('add') }}"><button class="btn btn-primary pull-left add">Add User</button></a>
+	  	</div>
+	  </div>	
+	  <div class="row">
+	    <div class="col-md-12 content">
+	    	<h4>List of users</h4>
+          <div class="table-responsive">
+          	 <table id="mytable" class="table table-bordred table-striped">
+                <thead>          
+                     <th>#</th>
+                     <th>Id</th>
+                     <th>Username</th>
+                     <th>Email</th>
+                     <th>Edit</th>                      
+                     <th>Delete</th>
+                   </thead>
+                   
+                   <tbody>
+                   	{% for user in users %}
+                   	<tr>
+                   	 <td><input type="checkbox" class="checkthis" /></td>
+                     <td>{{ user.id }}</td>
+		             <td>{{ user.username }}</td>
+		             <td>{{ user.email }}</td>
+		             <td><a href="{{ path('update',{'id':user.id}) }}"><button class="btn btn-primary">Edit</button></a></td>
+		             <td><a href="{{ path('delete',{'id':user.id}) }}"><button class="btn btn-danger">Delete</button></a></td>
+		            </tr>
+                   	{% endfor %}
+                   </tbody>
+          	 </table>
+
+          </div>
+        </div>
+	  </div>
+    </div>
+</body>
+</html>

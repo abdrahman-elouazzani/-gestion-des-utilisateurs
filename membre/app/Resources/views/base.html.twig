@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <style type="text/css">
+      .button{
+
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 16px;
+    outline: 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+      }
+    </style>   
+
+    </head>
+    <body>
+        <nav>
+         <div class="btn-group div-nav">
+          <a href="{{ path('membre_login') }}"><button type="button" class="btn btn-primary navbar-btn button">Login</button></a>
+          <a href="{{ path('membre_signup') }}"> <button type="button" class="btn btn-success navbar-btn button">Sign up</button></a>
+         </div> 
+        </nav>
+          
+        
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+           <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+           <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,13 @@
+<p class="form-title">Sign Up</p>
+{{ form_start(form, {'attr': {'class': 'login'}}) }}
+ {# Les erreurs générales du formulaire. #}
+  {{ form_errors(form) }}
+  {{ form_widget(form.username, {'attr': {'class': 'form-control','placeholder': 'username'}}) }}
+  {{ form_widget(form.email, {'attr': {'class': 'form-control','placeholder': "Email"}}) }}
+  {{ form_widget(form.password.first, {'attr': {'class': 'form-control','placeholder': "Password"}}) }}
+  {{ form_widget(form.password.second, {'attr': {'class': 'form-control','placeholder': "Confirm Password"}}) }}
+  {{ form_widget(form.save, {'attr': {'class': 'btn btn-success  submit'}}) }}
+   
+
+{{ form_end(form) }}
+                    

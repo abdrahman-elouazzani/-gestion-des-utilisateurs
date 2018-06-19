@@ -1,0 +1,31 @@
+membre_homepage:
+    path:     /
+    defaults: { _controller: MembreBundle:Membre:index }
+
+membre_login:
+    path:     /login
+    defaults: { _controller: MembreBundle:Membre:login }
+
+membre_signup:
+    path:     /registration
+    defaults: { _controller: MembreBundle:Membre:registration }  
+
+home:
+    path:     /home
+    defaults: { _controller: MembreBundle:Membre:home } 
+
+delete:
+    path:     home/delete/{id}
+    defaults: { _controller: MembreBundle:Membre:delete }
+          
+
+update:
+    path:     home/update/{id}
+    defaults: { _controller: MembreBundle:Membre:update }
+
+add:
+    path:     home/add
+    defaults: { _controller: MembreBundle:Membre:add }                    
+
+logout:
+    path:     /logout

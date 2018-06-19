@@ -1,0 +1,45 @@
+ {% extends 'base.html.twig' %}
+
+ {% block title %}Login{% endblock %}
+ {% block stylesheets %} {{parent()}} 
+         <link rel="stylesheet" href="{{ asset('css/login.css') }}" />
+    {% endblock %}   
+
+ {% block body %}
+   <div class="container">
+   	<div class="row">
+   		<div class="col-md-12">
+   			<div class="wrap">
+   			<p class="form-title">
+                    Sign In</p>
+                    {% if error %}
+                      <div class="alert alert-danger">{{ error.message }}</div>
+               {% endif %}
+                <form class="login" method="post" action="">
+                <input type="text" placeholder="Username" name="_username" value="{{ last_username }}" />
+                <input type="password" placeholder="Password" name="_password"/>
+                <input type="hidden" name="_target_path" value="{{ path('home') }}" />
+                <input type="submit" value="Sign In" class="btn btn-success btn-sm submit" />
+                <div class="remember-forgot">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" />
+                                    Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6 forgot-pass-content">
+                            <a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
+                        </div>
+                    </div>
+                </div>
+                </form>
+             
+   			</div>
+   		</div>
+   	</div>
+   </div> 
+
+ {% endblock %}
